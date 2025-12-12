@@ -1,0 +1,66 @@
+experiment:
+  name: exp3
+  title: "led by easy_gatelevel_model: easy benchmarking on different compositons of noise models"
+  seed: 1234
+  out_dir: results/experiment3
+
+circuit:
+  type: BitCode
+  num_data_qubits: [2,3,4,5,6] 
+  num_rounds: [1, 2, 4]        
+  # bit_state: [0,0,0]       
+  # type: "MerminBell"
+  # num_qubits: [3, 4, 5, 6, 7, 8, 9, 10] 
+
+
+timing:
+  t1: 20.0        # 1q gate duration
+  t2: 40.0        # 2q gate duration
+  tau_c: 60.0     # flux noise correlation time
+
+noise:
+  idle:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    duration: 40e-9
+    # scale: 1.33
+    scale: 1.0
+
+  ry_gate:
+    enabled: true
+    tau_g1q: 20e-9
+    T1: 30e-6
+    Tphi: 60e-6
+    p_axis: 1e-4
+    p_plane: 5e-4
+    # scale: 1.33
+    scale: 1.0
+
+  photon_decay:
+    enabled: true
+    chi: "-2.6e6 * pi"
+    alpha_0: "sqrt(0.8)"
+    kappa: 6e6
+    tau_m: 300e-9
+    tau_d: 300e-9
+    # scale: 1.33
+    scale: 1.0
+
+  flux_quasistatic:
+    enabled: true
+    sigma: 0.05
+    overflow: cycle
+
+easy_noise:
+  # - {name: Y90+,  arity: 1, epc: 0.003679, delta: 0.000343}
+  # - {name: Y90-,  arity: 1, epc: 0.003575, delta: 0.000238}
+  # - {name: H   ,  arity: 1, epc: 0.002395, delta: -0.000941}
+  # - {name: CZ  ,  arity: 1, epc: 0.005530, delta: 0.002194}
+  # - {name: IDLE,  arity: 1, epc: 0.001793, delta: -0.001544}
+  - {name: Y90+,  arity: 1, epc: 0.003701, delta: 0.000429}
+  - {name: Y90-,  arity: 1, epc: 0.003687, delta: 0.000414}
+  - {name: H   ,  arity: 1, epc: 0.002288, delta: -0.000985}
+  - {name: CZ  ,  arity: 1, epc: 0.004961, delta: 0.001689}
+  - {name: IDLE,  arity: 1, epc: 0.001713, delta: -0.001559}
+

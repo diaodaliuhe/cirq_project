@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: experiments
+Version: 0.1.0
+Summary: Cirq experiments: scripts & configs
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6

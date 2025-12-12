@@ -1,0 +1,67 @@
+experiment:
+  name: exp2_rb
+  title: Interleaved RB for Gate Set
+  metric: "fidelity"             # 或 "survival" 如果你想比较一下也行
+  m_list: [10, 20, 30]  # RB 深度列表
+  # m_list: [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+  n_sequences: 16
+  fit_curve: exponential         # 可选: exponential, stretched_exponential 等
+  out_dir: results/exp2_interleaved_rb   # 保存目录
+
+circuit:
+  n_qubits: 2                    # ← interleaved RB 中我们限制为 1 或 2 比特
+  depth_is_m: true
+  measure: true
+
+irb_gate_set:                     # gate set 里每个门都会跑一轮 interleaved RB
+  - {name: Y90+,  arity: 1, prob: 1.0}
+  - {name: Y90-,  arity: 1, prob: 1.0}
+  - {name: Z,     arity: 1, prob: 1.0}
+  - {name: CZ,    arity: 2, prob: 1.0}
+  - {name: IDLE,  arity: 1, prob: 1.0}
+
+timing:
+  t1: 20
+  t2: 40
+  tau_c: 60
+
+noise:
+  idle:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    duration: 40e-9
+    # scale: 1.33
+    scale: 1.0
+
+  ry_gate:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    p_axis: 1e-4
+    p_plane: 5e-4
+    z_policy: virtual
+    # scale: 1.33
+    scale: 1.0
+
+  photon_decay:
+    enabled: true
+    chi: "-2.6e6 * pi"
+    alpha_0: "sqrt(0.8)"
+    kappa: 4e6
+    tau_m: -590e-9
+    tau_d: 10e-9
+    # scale: 1.33
+    scale: 1.0
+
+  flux_quasistatic:
+    enabled: true
+    sigma: 0.05
+    overflow: cycle
+
+
+logging:
+  fid_probe:
+    enabled: true
+    per_m: 2
+    outfile: "fid_probe.csv"

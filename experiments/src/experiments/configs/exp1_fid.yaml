@@ -1,0 +1,87 @@
+experiment:
+  name: exp1
+  title: "τ_c-dependence of fidelity & trace distance under segmented flux noise"
+  seed: 6383824
+  n_samples: 10
+  tau_c_list: [20, 40, 60, 80, 120, 200, 400, 800, 1200, 2400, 6000, 8000, 20000]
+  # tau_c_list: [20, 40, 60]
+
+circuit:
+  type: QSIH
+  n_qubits: 8
+  n_layers: 10    # trotter steps
+  theta_value: 0.05  # 数值电路使用
+  write_txt: "output_circuit.txt"  # 保存“符号电路”结构
+  # num_qubits: 6
+  # time_step: 1
+  # total_time: 100
+
+timing:
+  t1: 20.0        # 1q gate duration
+  t2: 40.0        # 2q gate duration
+
+noise:
+
+  idle:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+
+  ry_gate:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    p_axis: 1e-4
+    p_plane: 5e-4
+    z_policy: virtual
+
+  photon_decay:
+    enabled: true
+    chi: "-2.6e6 * pi"     # rad/s
+    alpha_0: "sqrt(0.8)"
+    kappa: 4e6
+    tau_m: -590e-9
+    tau_g: 10e-9
+
+  flux_quasistatic:
+    enabled: false
+    sigma: 0.05
+    seed: 9200164
+
+  # idle:
+  #   enabled: true
+  #   T1: 30e-6
+  #   Tphi: 60e-6
+  #   scale: 0
+
+  # ry_gate:
+  #   enabled: true
+  #   T1: 30e-6
+  #   Tphi: 60e-6
+  #   p_axis: 1e-4
+  #   p_plane: 5e-4
+  #   z_policy: virtual
+  #   scale: 0
+
+  # photon_decay:
+  #   enabled: true
+  #   chi: "-2.6e6 * pi"     # rad/s
+  #   alpha_0: "sqrt(0.8)"
+  #   kappa: 4e6
+  #   tau_m: -590e-9
+  #   tau_g: 10e-9
+  #   scale: 0 
+
+  # flux_quasistatic:
+  #   enabled: true
+  #   sigma: 0.00
+  #   seed: 2037052
+
+
+metrics:
+  - fidelity
+  - trace_distance
+
+output:
+  results_txt: "experiment_results.txt"
+  samples_tsv: "experiment_samples.tsv"   # 原始样本（可选）

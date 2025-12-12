@@ -1,0 +1,3 @@
+[console_scripts]
+run-exp = experiments.scripts.run_exp1_experiment:main
+save-results = experiments.scripts.save_results:main
