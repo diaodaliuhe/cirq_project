@@ -1,7 +1,7 @@
 # 忽略 '中电信' 目录下的所有内容
 中电信/*
 
-# 忽略 'results' 目录（或你可以修改，只保留最新文件）
+# 忽略 'results' 目录
 results/
 
 # 忽略 Python 编译生成的文件
@@ -12,7 +12,7 @@ __pycache__/
 # 忽略测试相关的缓存文件
 .pytest_cache/
 
-# 忽略编辑器配置文件（VSCode）
+# 忽略编辑器配置文件
 .vscode/
 .editorconfig
 
@@ -38,3 +38,6 @@ output_circuit.txt
 # 忽略其他不需要的文件
 *.tsv
 *.csv
+
+
+update_all.sh
