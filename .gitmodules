@@ -1,0 +1,3 @@
+[submodule "dev/Cirq"]
+	path = dev/Cirq
+	url = https://github.com/diaodaliuhe/Cirq.git
