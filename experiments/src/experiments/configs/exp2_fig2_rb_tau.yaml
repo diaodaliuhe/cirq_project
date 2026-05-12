@@ -1,18 +1,11 @@
 experiment:
-  name: exp2_fig34
-  title: "Standard 1Q RB under segmented flux noise"
+  name: exp2_fig2_rb_tau
+  title: "Fig.2: RB mean survival vs tau_c at fixed sigma"
   seed: 20010416
-
   metric: survival
   fit_curve: exponential
-
-  parallel_mode: grid_tau_m
-  n_workers: 90
-
-  m_list: [2, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024]
-  # m_list: [2, 4, 8, 16, 32, 64]
+  m_list: [64, 256, 1024]
   n_sequences: 300
-  bound_estimate_nseq: 30
 
   conditions:
     - label: tau20
@@ -85,28 +78,6 @@ experiment:
       idle_insert_prob: 0.0
       idle_duration_ns: 20.0
 
-  # conditions:
-  #   - label: tau20
-  #     tau_c: 20
-  #     idle_insert_prob: 0.0
-  #     idle_duration_ns: 20.0
-
-  #   - label: tau400
-  #     tau_c: 400
-  #     idle_insert_prob: 0.0
-  #     idle_duration_ns: 20.0
-
-  #   - label: tau5000
-  #     tau_c: 5000
-  #     idle_insert_prob: 0.0
-  #     idle_duration_ns: 20.0
-    
-  #   - label: tau40000
-  #     tau_c: 40000
-  #     idle_insert_prob: 0.0
-  #     idle_duration_ns: 20.0
-
-
 rb:
   compile_mode: weak
   gate_set: clifford_1q
@@ -148,8 +119,8 @@ noise:
 
   flux_quasistatic:
     enabled: true
-    sigma: 0.1
-    seed: 987654321
+    sigma: 0.10
+    flux_seed: 987654321
     sampling:
       mode: local_correlated
 

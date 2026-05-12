@@ -1,20 +1,42 @@
 experiment:
-  name: exp1
-  title: "τ_c-dependence of fidelity & trace distance under segmented flux noise"
-  seed: 6383824
-  n_samples: 10
-  tau_c_list: [20, 40, 60, 80, 120, 200, 400, 800, 1200, 2400, 6000, 8000, 20000]
-  # tau_c_list: [20, 40, 60]
-
+  name: exp1_fig1_sigma01
+  title: "Fig.1 CPMG tau sweep, sigma=0.1"
+  #title: "τ_c-dependence of fidelity & trace distance under segmented flux noise"
+  # seed: auto
+  seed: 20010416
+  n_samples: 2000
+  tau_c_list: [20, 40, 60, 80, 120, 200, 400, 800, 1200, 2400, 5000, 8000, 20000, 40000] 
+  # tau_c_list: [20, 40, 60, 80, 120, 200, 400, 800, 1200, 2400, 4000, 8000, 10000]
+  # tau_c_list: [20, 40, 80, 200, 400, 800, 1600, 2500, 5000]
+  # tau_c_list: [20, 40, 80, 160]
+  # tau_c_list: [40, 400, 1200, 5000]
+  n_workers: 96
+  chunk_size: 40
+  scratch_dir: /tmp
+  
 circuit:
-  type: QSIH
-  n_qubits: 8
-  n_layers: 10    # trotter steps
-  theta_value: 0.05  # 数值电路使用
   write_txt: "output_circuit.txt"  # 保存“符号电路”结构
+  compile: false
+  # type: QSIH
+  # num_qubits: 6
+  # num_layers: 110    # trotter steps
+  # theta_value: 0.05  # 数值电路使用
+  # type: HamiltonianSimulation
   # num_qubits: 6
   # time_step: 1
-  # total_time: 100
+  # total_time: 96
+  # type: RandomBitcode
+  # num_data_qubits: 4
+  # num_rounds: 1 
+  # runs: 130
+  # type: RandomizedBenchmarking
+  # depth : 1000
+  # idle_insert_prob : 0.2
+  # idle_duration_ns : 20
+  type: CPMG
+  num_qubits: 1
+  num_refocusing: 100
+  wait_duration: 400
 
 timing:
   t1: 20.0        # 1q gate duration
@@ -44,15 +66,25 @@ noise:
     tau_g: 10e-9
 
   flux_quasistatic:
-    enabled: false
-    sigma: 0.05
-    seed: 9200164
+    enabled: true
+    sigma: 0.1
+    # flux_seed: auto
+    flux_seed: 987654321
+    sampling:
+      mode: local_correlated
+      # mode: global_trace_ar1
+      sample_stride_segments: auto
+      rho: 0.1
+      bounds:
+        enabled: true
+        low: -0.30
+        high: 0.30
 
   # idle:
   #   enabled: true
   #   T1: 30e-6
   #   Tphi: 60e-6
-  #   scale: 0
+  #   scale: 0.25
 
   # ry_gate:
   #   enabled: true
@@ -61,7 +93,7 @@ noise:
   #   p_axis: 1e-4
   #   p_plane: 5e-4
   #   z_policy: virtual
-  #   scale: 0
+  #   scale: 0.25
 
   # photon_decay:
   #   enabled: true
@@ -70,12 +102,22 @@ noise:
   #   kappa: 4e6
   #   tau_m: -590e-9
   #   tau_g: 10e-9
-  #   scale: 0 
+  #   scale: 1.0
 
   # flux_quasistatic:
   #   enabled: true
-  #   sigma: 0.00
-  #   seed: 2037052
+  #   sigma: 0.1
+  #   # flux_seed: auto
+  #   flux_seed: 20010416
+  #   sampling:
+  #     mode: local_correlated
+  #     # mode: global_trace_ar1
+  #     sample_stride_segments: auto
+  #     rho: 0.95
+  #     bounds:
+  #       enabled: true
+  #       low: -0.30
+  #       high: 0.30
 
 
 metrics:

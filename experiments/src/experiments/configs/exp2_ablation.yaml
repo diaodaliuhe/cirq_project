@@ -1,0 +1,76 @@
+experiment:
+  name: exp2_2
+  title: "Exp2.2 ablation: 1Q RB noise contribution at tau_c = 40 ns"
+  seed: 20010416
+  metric: survival
+  fit_curve: exponential
+
+  # m_list: [4, 8, 16, 32, 48, 64, 96, 128, 192, 256, 384, 512, 768, 1024]
+  m_list: [4, 16, 48, 96, 192, 384, 768]
+
+  n_sequences: 50
+
+  ablation_keys:
+    - use_idle
+    - use_photon_decay
+    - use_ry
+    - use_segmented_flux
+
+base_condition:
+  label: tau40
+  tau_c: 40
+  idle_insert_prob: 0.3
+  idle_duration_ns: 20.0
+
+rb:
+  compile_mode: weak
+  gate_set: clifford_1q
+
+circuit:
+  type: RandomizedBenchmarking
+  num_qubits: 1
+  idle_insert_prob: 0.3
+  idle_duration_ns: 20.0
+
+timing:
+  t1: 20.0
+  t2: 40.0
+  tau_c: 40.0
+
+noise:
+  idle:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    scale: 1.0
+
+  ry_gate:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    p_axis: 1e-4
+    p_plane: 5e-4
+    z_policy: virtual
+    scale: 1.0
+
+  photon_decay:
+    enabled: true
+    chi: "-2.6e6 * pi"
+    alpha_0: "sqrt(0.8)"
+    kappa: 4e6
+    tau_m: -590e-9
+    tau_g: 10e-9
+    scale: 1.0
+
+  flux_quasistatic:
+    enabled: true
+    sigma: 0.1
+    flux_seed: 314159265
+    sampling:
+      mode: local_correlated
+
+logging:
+  fid_probe:
+    enabled: false
+    per_m: 0
+    outfile: "rb_probe.csv"

@@ -38,6 +38,3 @@ output_circuit.txt
 # 忽略其他不需要的文件
 *.tsv
 *.csv
-
-
-update_all.sh
