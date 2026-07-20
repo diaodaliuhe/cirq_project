@@ -1,0 +1,55 @@
+{
+  "implementation_tag": "paper_2026",
+  "figure": "paper_fig4_fig5_rb_decay",
+  "created_at": "2026-07-21T05:39:08",
+  "host": "epr",
+  "platform": "Linux-5.15.0-140-generic-x86_64-with-glibc2.35",
+  "cwd": "/home/zhuhongxiang/cirq_project",
+  "config_source": "/home/zhuhongxiang/cirq_project/experiments/src/experiments/configs/paper_2026/fig4_fig5_rb_decay.yaml",
+  "config": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/config.yaml",
+  "sequence_seeds": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/sequence_seeds_by_m.json",
+  "main_repo": {
+    "commit": "a69e77700aa054b652abca74a69a734ac0069815",
+    "status_short": [
+      " M .gitignore",
+      " m dev/Cirq",
+      " M experiments/pyproject.toml",
+      " M experiments/src/experiments.egg-info/SOURCES.txt",
+      " M experiments/src/experiments/scripts/experiment1_fid.py",
+      " M experiments/src/experiments/scripts/experiment2_rb.py",
+      " M mynotebooks0416/script.ipynb",
+      "?? REPRODUCIBILITY.md",
+      "?? experiments/src/experiments/configs/paper_2026/",
+      "?? experiments/src/experiments/scripts/paper_2026/",
+      "?? mynotebooks0416/combined_postprocs/",
+      "?? mynotebooks0416/connection_test.ipynb",
+      "?? run_paper_fig2_cpmg.py",
+      "?? run_paper_fig3_rb_tau_sweep.py",
+      "?? run_paper_fig4_fig5_rb_decay.py"
+    ]
+  },
+  "cirq_repo": {
+    "commit": "354f7b7149c00baa09b54e74486d346377ff508f",
+    "status_short": [
+      " M cirq-core/cirq/noise/models/segmented_flux_noise_model.py",
+      " M cirq-core/cirq/noise/utils/timed_circuit_context.py",
+      "?? cirq-core/cirq/noise/models/photon_decay_noise_model_test.py",
+      "?? cirq-core/cirq/noise/models/segmented_flux_noise_model_test.py"
+    ]
+  },
+  "result_txt": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/results_paper_fig4_fig5_rb_decay.txt",
+  "json": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/rb_tau_sweep.json",
+  "fit_summary": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/fit_summary.tsv",
+  "saturation_reuse_summary": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/saturation_reuse_summary.tsv",
+  "postproc": {
+    "paper_fig4_rb_multicurve": {
+      "png": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/paper_fig4_rb_multicurve.png",
+      "pdf": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/paper_fig4_rb_multicurve.pdf"
+    },
+    "paper_fig5_rb_stats_vs_tau": {
+      "png": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/paper_fig5_rb_stats_vs_tau.png",
+      "pdf": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/paper_fig5_rb_stats_vs_tau.pdf",
+      "tsv": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/paper_fig5_rb_stats_vs_tau.tsv"
+    }
+  }
+}

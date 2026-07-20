@@ -1,0 +1,132 @@
+{
+  "format": "exp1-raw-memmap-v1",
+  "dtype": "float64",
+  "items": [
+    {
+      "tau_idx": 0,
+      "tau_c": 20.0,
+      "fidelity1_file": "fid_tau0.dat",
+      "trace_distance_file": "td_tau0.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 1,
+      "tau_c": 40.0,
+      "fidelity1_file": "fid_tau1.dat",
+      "trace_distance_file": "td_tau1.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 2,
+      "tau_c": 60.0,
+      "fidelity1_file": "fid_tau2.dat",
+      "trace_distance_file": "td_tau2.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 3,
+      "tau_c": 80.0,
+      "fidelity1_file": "fid_tau3.dat",
+      "trace_distance_file": "td_tau3.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 4,
+      "tau_c": 120.0,
+      "fidelity1_file": "fid_tau4.dat",
+      "trace_distance_file": "td_tau4.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 5,
+      "tau_c": 200.0,
+      "fidelity1_file": "fid_tau5.dat",
+      "trace_distance_file": "td_tau5.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 6,
+      "tau_c": 400.0,
+      "fidelity1_file": "fid_tau6.dat",
+      "trace_distance_file": "td_tau6.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 7,
+      "tau_c": 800.0,
+      "fidelity1_file": "fid_tau7.dat",
+      "trace_distance_file": "td_tau7.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 8,
+      "tau_c": 1200.0,
+      "fidelity1_file": "fid_tau8.dat",
+      "trace_distance_file": "td_tau8.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 9,
+      "tau_c": 2400.0,
+      "fidelity1_file": "fid_tau9.dat",
+      "trace_distance_file": "td_tau9.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 10,
+      "tau_c": 5000.0,
+      "fidelity1_file": "fid_tau10.dat",
+      "trace_distance_file": "td_tau10.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 11,
+      "tau_c": 8000.0,
+      "fidelity1_file": "fid_tau11.dat",
+      "trace_distance_file": "td_tau11.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 12,
+      "tau_c": 20000.0,
+      "fidelity1_file": "fid_tau12.dat",
+      "trace_distance_file": "td_tau12.dat",
+      "shape": [
+        2000
+      ]
+    },
+    {
+      "tau_idx": 13,
+      "tau_c": 40000.0,
+      "fidelity1_file": "fid_tau13.dat",
+      "trace_distance_file": "td_tau13.dat",
+      "shape": [
+        2000
+      ]
+    }
+  ]
+}

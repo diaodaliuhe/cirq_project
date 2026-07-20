@@ -1,0 +1,104 @@
+{
+  "implementation_tag": "paper_2026",
+  "figure": "paper_fig2_cpmg",
+  "created_at": "2026-07-21T04:49:56",
+  "host": "epr",
+  "platform": "Linux-5.15.0-140-generic-x86_64-with-glibc2.35",
+  "cwd": "/home/zhuhongxiang/cirq_project",
+  "main_repo": {
+    "commit": "a69e77700aa054b652abca74a69a734ac0069815",
+    "status_short": [
+      " M .gitignore",
+      " m dev/Cirq",
+      " M experiments/pyproject.toml",
+      " M experiments/src/experiments.egg-info/SOURCES.txt",
+      " M experiments/src/experiments/scripts/experiment1_fid.py",
+      " M experiments/src/experiments/scripts/experiment2_rb.py",
+      " M mynotebooks0416/script.ipynb",
+      "?? REPRODUCIBILITY.md",
+      "?? experiments/src/experiments/configs/paper_2026/",
+      "?? experiments/src/experiments/scripts/paper_2026/",
+      "?? mynotebooks0416/combined_postprocs/",
+      "?? mynotebooks0416/connection_test.ipynb",
+      "?? run_paper_fig2_cpmg.py",
+      "?? run_paper_fig3_rb_tau_sweep.py",
+      "?? run_paper_fig4_fig5_rb_decay.py"
+    ]
+  },
+  "cirq_repo": {
+    "commit": "354f7b7149c00baa09b54e74486d346377ff508f",
+    "status_short": [
+      " M cirq-core/cirq/noise/models/segmented_flux_noise_model.py",
+      " M cirq-core/cirq/noise/utils/timed_circuit_context.py",
+      "?? cirq-core/cirq/noise/models/photon_decay_noise_model_test.py",
+      "?? cirq-core/cirq/noise/models/segmented_flux_noise_model_test.py"
+    ]
+  },
+  "local_import_paths": [
+    "/home/zhuhongxiang/cirq_project/experiments/src",
+    "/home/zhuhongxiang/cirq_project/dev/Cirq/cirq-core"
+  ],
+  "n_workers": 40,
+  "run_dir": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956",
+  "sigma_run_dirs": {
+    "0.03": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/sigma030",
+    "0.06": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/sigma060",
+    "0.1": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/sigma100"
+  },
+  "tables": {
+    "reported_summary": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_summary_reported_fidelity.tsv",
+    "reported_endpoint": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_endpoint_differences_reported_fidelity.tsv",
+    "reported_compression": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_curve_compression_reported_fidelity.tsv",
+    "state_summary": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_summary_state_fidelity.tsv",
+    "state_endpoint": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_endpoint_differences_state_fidelity.tsv",
+    "state_compression": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/postproc/fig2_cpmg_curve_compression_state_fidelity.tsv"
+  },
+  "figures": {
+    "reported_figure": {
+      "png": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/figures/paper_fig2_cpmg_reported_fidelity.png",
+      "pdf": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/figures/paper_fig2_cpmg_reported_fidelity.pdf"
+    },
+    "state_figure": {
+      "png": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/figures/paper_fig2_cpmg_state_fidelity.png",
+      "pdf": "/home/zhuhongxiang/cirq_project/results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/figures/paper_fig2_cpmg_state_fidelity.pdf"
+    }
+  },
+  "commands": [
+    "python run_paper_fig2_cpmg.py",
+    "python run_paper_fig2_cpmg.py --n-workers 40"
+  ],
+  "reported_endpoint_two_sig": [
+    {
+      "sigma": 0.03,
+      "diff": "0.0049",
+      "se": "0.00015"
+    },
+    {
+      "sigma": 0.06,
+      "diff": "0.018",
+      "se": "0.00055"
+    },
+    {
+      "sigma": 0.1,
+      "diff": "0.044",
+      "se": "0.0012"
+    }
+  ],
+  "state_endpoint_two_sig": [
+    {
+      "sigma": 0.03,
+      "diff": "0.0074",
+      "se": "0.00023"
+    },
+    {
+      "sigma": 0.06,
+      "diff": "0.028",
+      "se": "0.00082"
+    },
+    {
+      "sigma": 0.1,
+      "diff": "0.066",
+      "se": "0.0017"
+    }
+  ]
+}

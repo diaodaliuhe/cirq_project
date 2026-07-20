@@ -577,6 +577,7 @@ def _assemble_rb_result_from_grid(
     seq_vals_all = []
     mean_y = []
     probe_rows_all = []
+    saturation_reuse_by_m = []
 
     for m in m_list:
         pr = point_results_by_m[int(m)]
@@ -584,6 +585,13 @@ def _assemble_rb_result_from_grid(
         seq_vals_all.append(vals)
         mean_y.append(float(pr["mean"]))
         probe_rows_all.extend(pr.get("probe_rows", []))
+        saturation_reuse_by_m.append(
+            {
+                "m": int(m),
+                "copied_from_tau_idx": pr.get("copied_from_tau_idx"),
+                "copied_from_tau_c": pr.get("copied_from_tau_c"),
+            }
+        )
 
     seq_vals_all = np.asarray(seq_vals_all, dtype=float)
     obs_stats = _compute_obs_stats_from_seq_vals(seq_vals_all)
@@ -625,6 +633,7 @@ def _assemble_rb_result_from_grid(
             "params": fit.params,
             "param_stderr": fit.param_stderr,
         },
+        "saturation_reuse_by_m": saturation_reuse_by_m,
         "probe": probe_info,
     }
 
@@ -1251,6 +1260,10 @@ def _save_rb_raw_npz(
     if res.get("Pbar") is not None:
         payload["Pbar"] = np.asarray(res["Pbar"], dtype=float)
 
+    reuse = res.get("saturation_reuse_by_m", None)
+    if reuse is not None:
+        payload["saturation_reuse_by_m"] = np.asarray(reuse, dtype=object)
+
     fit = res.get("fit", {})
     payload["fit_model"] = np.asarray(str(fit.get("model", "exponential")))
 
@@ -1651,6 +1664,8 @@ def save_results_exp2_rb_decay(
                 f.write(f"  seq_vals.shape     : {tuple(seq_vals.shape)}\n")
             else:
                 f.write("  seq_vals.shape     : N/A\n")
+            if res.get("saturation_reuse_by_m", None) is not None:
+                f.write(f"  saturation_reuse   : {res.get('saturation_reuse_by_m')}\n")
 
             f.write("\n")
 

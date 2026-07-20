@@ -4,6 +4,15 @@
 # 忽略 'results' 目录
 results/
 
+# Local/private revision workspace and audit artifacts
+.env
+paper_revisions/
+codex_audits/
+
+# Build and packaging artifacts
+experiments/build/
+*.egg-info/
+
 # 忽略 Python 编译生成的文件
 *.pyc
 *.pyo
@@ -38,3 +47,22 @@ output_circuit.txt
 # 忽略其他不需要的文件
 *.tsv
 *.csv
+
+# Keep the official Paper 2026 reproduction outputs.
+!results/
+results/*
+!results/paper_2026/
+results/paper_2026/*
+!results/paper_2026/README.md
+!results/paper_2026/paper_fig2_cpmg/
+results/paper_2026/paper_fig2_cpmg/*
+!results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/
+!results/paper_2026/paper_fig2_cpmg/cpmg_fig2_20260721-044956/**
+!results/paper_2026/paper_fig3_rb_tau_sweep/
+results/paper_2026/paper_fig3_rb_tau_sweep/*
+!results/paper_2026/paper_fig3_rb_tau_sweep/rb_tau_20260721-045718/
+!results/paper_2026/paper_fig3_rb_tau_sweep/rb_tau_20260721-045718/**
+!results/paper_2026/paper_fig4_fig5_rb_decay/
+results/paper_2026/paper_fig4_fig5_rb_decay/*
+!results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/
+!results/paper_2026/paper_fig4_fig5_rb_decay/rb_decay_20260721-053908/**

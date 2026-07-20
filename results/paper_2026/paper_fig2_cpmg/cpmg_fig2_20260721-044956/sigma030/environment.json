@@ -1,0 +1,19 @@
+{
+  "time": "2026-07-21 04:52:12",
+  "hostname": "epr",
+  "platform": "Linux-5.15.0-140-generic-x86_64-with-glibc2.35",
+  "python": "3.11.8",
+  "executable": "/home/zhuhongxiang/.pyenv/versions/3.11.8/bin/python3.11",
+  "cwd": "/home/zhuhongxiang/cirq_project",
+  "pid": 1268074,
+  "env_threads": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "git_commit": "a69e77700aa054b652abca74a69a734ac0069815",
+  "git_branch": "master",
+  "git_dirty": true,
+  "experiment": "paper_2026_fig2_cpmg_sigma030"
+}

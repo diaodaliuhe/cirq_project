@@ -373,7 +373,7 @@ def _prepare_one_tau(args: Tuple[Any, ...]) -> Dict[str, Any]:
         "flux_trace_shape": list(flux_trace_shape) if flux_trace_shape is not None else None,
     }
 
-# Per-process cache to avoid re-building ctx & fixed models for every chunk.
+# Per-process cache to avoid re-building ctx and stateless models for every chunk.
 _TAU_CACHE: Dict[Tuple[int, float], Tuple[Any, int, List[cirq.NoiseModel]]] = {}
 
 
@@ -407,12 +407,18 @@ def _get_tau_cached(
     if ry is not None:
         fixed_models.append(ry)
 
-    ph = build_photon_decay_from_yaml(noise_cfg, timed_ctx=ctx)
-    if ph is not None:
-        fixed_models.append(ph)
-
     _TAU_CACHE[key] = (ctx, segs, fixed_models)
     return _TAU_CACHE[key]
+
+
+def _append_per_realization_models(
+    models: List[cirq.NoiseModel],
+    noise_cfg: Dict[str, Any],
+    ctx: Any,
+) -> None:
+    ph = build_photon_decay_from_yaml(noise_cfg, timed_ctx=ctx)
+    if ph is not None:
+        models.append(ph)
 
 
 def _run_tau_chunk(args: Tuple[Any, ...]) -> Tuple[int, float, int]:
@@ -477,6 +483,7 @@ def _run_tau_chunk(args: Tuple[Any, ...]) -> Tuple[int, float, int]:
 #        }
 
         models = list(fixed_models)
+        _append_per_realization_models(models, noise_cfg, ctx)
         if is_flux_enabled(noise_cfg):
             models.append(SegmentedFluxNoiseModel(ctx.timing_map, delta_phis))
 
@@ -874,10 +881,6 @@ def run_exp1_experiment_serial(cfg: Dict[str, Any]) -> Tuple[List[Dict[str, Any]
         ry = build_ry_from_yaml(timing_cfg, noise_cfg)
         if ry is not None:
             fixed_models.append(ry)
-        ph = build_photon_decay_from_yaml(noise_cfg, timed_ctx=ctx)
-        if ph is not None:
-            fixed_models.append(ph)
-
         fids: List[float] = []
         tds: List[float] = []
 
@@ -892,6 +895,7 @@ def run_exp1_experiment_serial(cfg: Dict[str, Any]) -> Tuple[List[Dict[str, Any]
             }
 
             models = list(fixed_models)
+            _append_per_realization_models(models, noise_cfg, ctx)
             if is_flux_enabled(noise_cfg):
                 models.append(SegmentedFluxNoiseModel(ctx.timing_map, delta_phis))
 

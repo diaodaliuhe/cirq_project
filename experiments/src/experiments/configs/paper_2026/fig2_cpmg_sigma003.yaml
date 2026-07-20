@@ -1,0 +1,69 @@
+experiment:
+  name: paper_2026_fig2_cpmg_sigma003
+  title: Paper 2026 Fig. 2 CPMG tau sweep, sigma=0.03
+  seed: 20010416
+  n_samples: 2000
+  tau_c_list:
+  - 20
+  - 40
+  - 60
+  - 80
+  - 120
+  - 200
+  - 400
+  - 800
+  - 1200
+  - 2400
+  - 5000
+  - 8000
+  - 20000
+  - 40000
+  n_workers: 40
+  chunk_size: 40
+circuit:
+  write_txt: output_circuit.txt
+  compile: false
+  type: CPMG
+  num_qubits: 1
+  num_refocusing: 100
+  wait_duration: 400
+timing:
+  t1: 20.0
+  t2: 40.0
+noise:
+  idle:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+  ry_gate:
+    enabled: true
+    T1: 30e-6
+    Tphi: 60e-6
+    p_axis: 1e-4
+    p_plane: 5e-4
+    z_policy: virtual
+  photon_decay:
+    enabled: true
+    chi: -2.6e6 * pi
+    alpha_0: sqrt(0.8)
+    kappa: 4e6
+    tau_m: -590e-9
+    tau_g: 10e-9
+  flux_quasistatic:
+    enabled: true
+    sigma: 0.03
+    flux_seed: 987654321
+    sampling:
+      mode: local_correlated
+      sample_stride_segments: auto
+      rho: 0.1
+      bounds:
+        enabled: true
+        low: -0.3
+        high: 0.3
+metrics:
+- fidelity
+- trace_distance
+output:
+  results_txt: experiment_results.txt
+  samples_tsv: experiment_samples.tsv

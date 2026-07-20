@@ -23,9 +23,11 @@ where = ["src"]
 
 # 把 YAML 一起打包（wheel/sdist 都包含）
 [tool.setuptools.package-data]
-"experiments" = ["configs/*.yaml", "configs/*.yml", "configs/*.json"]
-
-# 可选：命令行入口
-[project.scripts]
-run-exp = "experiments.scripts.run_exp1_experiment:main"
-save-results = "experiments.scripts.save_results:main"
+"experiments" = [
+  "configs/*.yaml",
+  "configs/*.yml",
+  "configs/*.json",
+  "configs/paper_2026/*.yaml",
+  "configs/paper_2026/*.yml",
+  "configs/paper_2026/*.json",
+]
