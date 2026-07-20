@@ -130,11 +130,6 @@ This code is designed for circuit-level studies of temporally correlated flux-in
 
 The paper experiments use single-qubit CPMG and randomized-benchmarking circuits as controlled testbeds. Multiqubit schedules, calibrated device-specific spectra, syndrome-extraction circuits, and logical-level error-correction studies are natural extensions but are not part of the final reproduction workflows in this repository.
 
-## Citation
+## Manuscript Status
 
-If you use this repository, please cite the associated manuscript once the final bibliographic information is available:
-
-```text
-Hongxiang Zhu, Xinxuan Chen, Hui-Hai Zhao, Feng Wu, and Zhaofeng Su,
-"Execution-Aware Segmented Modeling of Temporally Correlated Flux-Induced Phase Noise in Quantum Circuits", 2026.
-```
+This repository contains code and reproduction artifacts for a manuscript under review. Citation information will be added after publication.
